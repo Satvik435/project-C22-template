@@ -22,7 +22,16 @@ function setup() {
   angleMode(DEGREES);
 
   //create player base body
+var options = {
+    isStatic: true
+  };
 
+  playerBase = Bodies.rectangle(200, 350, 180, 150, options);
+  World.add(world, playerBase);
+
+  player = Bodies.rectangle(250, playerBase.position.y - 160, 50, 180, options);
+  World.add(world,player)
+}
   //create player body
 
 
@@ -33,6 +42,8 @@ function draw() {
   background(backgroundImg);
 
   //show the player image using image() function
+ image(baseimage,playerBase.position.x,playerBase.position.y,180,150)
+  image(playerimage,player.position.x,player.position.y,50,180)
 
   //show the playerbase image using image() function
 
